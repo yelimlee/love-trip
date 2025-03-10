@@ -1,5 +1,5 @@
 import { colors, Colors } from '@/styles/colorPalette'
-import { typograpyhMap, Typography } from '@/styles/typography'
+import { typographyMap, Typography } from '@/styles/typography'
 import styled from '@emotion/styled'
 import { CSSProperties } from 'react'
 
@@ -19,7 +19,7 @@ const Text = styled.span<TextProps>(
     textAlign,
     fontWeight: bold ? 'bold' : fontWeight,
   }),
-  ({ typography = 't5' }) => typograpyhMap[typography],
+  ({ typography = 't5' }) => typographyMap[typography],
 )
 
 export default Text

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-export const typograpyhMap = {
+export const typographyMap = {
   t1: css`
     font-size: 30px;
     line-height: 1.35;
@@ -31,4 +31,4 @@ export const typograpyhMap = {
   `,
 }
 
-export type Typography = keyof typeof typograpyhMap
+export type Typography = keyof typeof typographyMap

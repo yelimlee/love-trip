@@ -1,4 +1,4 @@
-import { Hotel as IHotel } from '@/models/hotel'
+import { Hotel } from '@/models/hotel'
 import addDelimiter from '@/utils/addDelimiter'
 import formatTime from '@/utils/formatTimes'
 import { css } from '@emotion/react'
@@ -11,7 +11,7 @@ import Spacing from '../shared/Spacing'
 import Tag from '../shared/Tag'
 import Text from '../shared/Text'
 
-function Hotel({ hotel }: { hotel: IHotel }) {
+function HotelItem({ hotel }: { hotel: Hotel }) {
   const [remainedTime, setRemainedTime] = useState(0)
 
   useEffect(() => {
@@ -104,4 +104,4 @@ const imageStyles = css`
   margin-left: 16px;
 `
 
-export default Hotel
+export default HotelItem

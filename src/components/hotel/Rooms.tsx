@@ -12,8 +12,6 @@ import Button from '../shared/Button'
 function Rooms({ hotelId }: { hotelId: string }) {
   const { data } = useRooms({ hotelId })
 
-  console.log(data)
-
   return (
     <Container>
       <Header justify="space-between" align="center">

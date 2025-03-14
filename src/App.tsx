@@ -2,20 +2,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import HotelListPage from '@pages/HotelList'
 import TestPage from '@pages/Test'
 import HotelPage from './pages/Hotel'
+import useLoadKakao from './hooks/useLoadKakao'
 
 function App() {
-  const shirt = {
-    name: '멋쟁이 셔츠',
-    price: 1000,
-    colors: ['white', 'black'],
-  }
-
-  // const tShirt = Object.assign({}, shirt)
-  const tShirt = { ...shirt }
-  tShirt.colors[0] = 'orange'
-  console.log(shirt)
-  console.log(tShirt)
-
+  useLoadKakao()
   return (
     <BrowserRouter>
       <Routes>

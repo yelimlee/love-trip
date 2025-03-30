@@ -10,7 +10,7 @@ function HotelListPage() {
 
   return (
     <div>
-      <Top title="인기 호텔!!!" subTitle="호텔부터 펜션까지 최저가" />
+      <Top title="인기 호텔-main" subTitle="호텔부터 펜션까지 최저가" />
       <InfiniteScroll
         dataLength={hotels?.length ?? 0}
         hasMore={hasNextPage}

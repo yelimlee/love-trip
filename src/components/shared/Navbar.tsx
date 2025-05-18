@@ -1,3 +1,4 @@
+import useUser from '@/hooks/auth/useUser'
 import { colors } from '@/styles/colorPalette'
 import { css } from '@emotion/react'
 import { useCallback } from 'react'
@@ -9,15 +10,23 @@ function Navbar() {
   const location = useLocation()
   const showSignButton =
     ['/signup', '/signin'].includes(location.pathname) === false
-  // TODO
-  const user = false
-  // console.log('유저 정보', user)
+  const user = useUser()
+  console.log('유저 정보', user)
 
   const renderButton = useCallback(() => {
     if (user != null) {
       return (
         <Link to="/my">
-          <img src="" alt="" />
+          <img
+            src={
+              user.phooURL ??
+              'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png'
+            }
+            alt=""
+            width={40}
+            height={40}
+            style={{ borderRadius: '40%' }}
+          />
         </Link>
       )
     }
@@ -37,7 +46,7 @@ function Navbar() {
       align={'center'}
       css={navbarContainerStyels}
     >
-      <Link to="/">홈</Link>
+      <Link to="/">Love Trip</Link>
       {/* 특정페이지에서만 showSignButton 노출 */}
       {renderButton()}
     </Flex>

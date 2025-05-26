@@ -6,19 +6,35 @@ import Text from '@shared/Text'
 
 import { Hotel } from '@models/hotel'
 import useShare from '@/hooks/useShare'
+import useLike from '@/hooks/like/useLike'
 
 function ActionButtons({ hotel }: { hotel: Hotel }) {
   const share = useShare()
+  const { data: likes, mutate: like } = useLike()
 
-  const { name, comment, mainImageUrl } = hotel
+  const isLike = Boolean(likes?.find((like) => like.hotelId === hotel.id))
+
+  const { name, comment, mainImageUrl, id } = hotel
 
   return (
     <Flex css={containerStyles}>
       <Button
         label="찜하기"
-        onClick={() => {}}
+        onClick={() => {
+          like({
+            hotel: {
+              name,
+              mainImageUrl,
+              id,
+            },
+          })
+        }}
         // 'https://cdn4.iconfinder.com/data/icons/twitter-29/512/166_Heart_Love_Like_Twitter-64.png'
-        iconUrl="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-heart-outline-64.png"
+        iconUrl={
+          isLike
+            ? 'https://cdn4.iconfinder.com/data/icons/twitter-29/512/166_Heart_Love_Like_Twitter-512.png'
+            : 'https://cdn0.iconfinder.com/data/icons/phosphor-regular-vol-3/256/heart-512.png'
+        }
       />
       <Button
         label="공유하기"

@@ -11,7 +11,6 @@ function Navbar() {
   const showSignButton =
     ['/signup', '/signin'].includes(location.pathname) === false
   const user = useUser()
-  console.log('유저 정보', user)
 
   const renderButton = useCallback(() => {
     if (user != null) {
